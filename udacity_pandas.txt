@@ -1,0 +1,62 @@
+Pandas:
+    Series:
+        Pandas is a package for data manipulation and analysis in Python. The name Pandas is derived from the econometrics term Panel Data. Pandas incorporates two additional data structures into Python, namely Pandas Series and Pandas DataFrame. These data structures allow us to work with labeled and relational data in an easy and intuitive manner. 
+        Pandas is remarkable data analysis library and it has many functions and features. 
+        Pandas series is a one-dimensional array-like object that can hold many data types, such as numbers or strings. 
+        One of the main differences between Pandas Series and NumPy ndarrays is that you can assign an index label to each element in the Pandas Series.
+        import pandas as pd
+        pd.Series(data, index)
+            pd.Series(data = [1,2,3,4,5], index = ['eggs', 'appels', 'milk', ..])
+        insetad of indexing 0-n pandas indexes using the indexes given
+        .shape # gives shape of pandas series
+        .ndim # gives dimensions of series
+        .size # gives total number of elements
+        name.values # gives list of values in name series
+        name.index # gives list of indexes in name series
+        similar to dictionries we can use in to check if the index is available
+        similar to dictionries we can use index to find value name['index']
+        we can use multiple indexex to find multiple values
+        .loc['index'] can also be used to find the values
+        .iloc['numerical index'] can be to access elemnst using regular index'
+        Series are mutable like NumPy
+        .drop() # is used to drop any inedx and corresponding value temporarly ## if we se inplace to true permanently
+        All arthematic functions can be used same as NumPy
+    DataFrame:
+        Pandas DataFrames are two-dimensional data structures with labeled rows and columns, that can hold many data types. If you are familiar with Excel, you can think of Pandas DataFrames as being similar to a spreadsheet.
+        pd.DataFrame() # is used to create a DataFrame
+            items = {'Bob' : pd.Series(data = [245, 25, 55], index = ['bike', 'pants', 'watch']),
+                    'Alice' : pd.Series(data = [40, 110, 500, 45], index = ['book', 'glasses', 'bike', 'pants'])}
+                    	Alice	Bob
+                bike	500.0	245.0
+                book	40.0	NaN
+                glasses	110.0	NaN
+                pants	45.0	25.0
+                watch	NaN	    55.0
+            NaN stands for Not a Number
+        if we were to feed this data into a machine learning algorithm we will have to remove these NaN values first.
+        accessing elements dataframe[column][row]
+        The .pop() method only allows us to delete columns, while the .drop() method can be used to delete both rows and columns by use of the axis keyword.
+        .rename() method is used to change the name of the coloumns
+        we can use .set_index to set the name of the index
+        .isnull() method returns a Boolean DataFrame of the same size as store_items and indicates with True the elements that have NaN values and with False the elements that are not.
+        .sum().sum() will give us total number of null values in the frame
+        Instead of counting the number of NaN values we can also do the opposite, we can count the number of non-NaN values. We can do this by using the .count() method
+        The .dropna(axis) method eliminates any rows with NaN values when axis = 0 is used and will eliminate any columns with NaN values when axis = 1 is used. similar to .drop we have to use inplace to make change permananet
+        or we can use .fillna(0) to fill nan with zeros
+        .fillna(method = 'ffill/backfill', axis) will use the forward filling (ffill)/backfill method to replace NaN values using the previous known value along the given axis.
+        We can also choose to replace NaN values by using different interpolation methods. For example, the .interpolate(method = 'linear', axis) method will use linear interpolation to replace NaN values using the values along the given axis.
+    Loading data:
+        pd.read_csv('file name') used to load files into data frame
+        .head() gives the 5 elements after Loading
+        .tail() gives the last 5 elements after Loading
+        .isnull().any() gives any null values available
+        .describle() gives all the statistical information. we can apply the .describe() method on a single column
+        .corr() gives correlation between all the coloumns
+        .groupby() groups the coloumns according to the coloumns data
+
+
+
+
+
+
+
