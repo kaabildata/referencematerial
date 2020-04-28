@@ -1,0 +1,68 @@
+Numpy:
+        NumPy has a number of key features that give it great advantages over Python lists. One such feature is speed. When performing operations on large arrays NumPy can often perform several orders of magnitude faster than Python lists. This speed comes from the nature of NumPy arrays being memory-efficient and from optimized algorithms used by NumPy for doing arithmetic, statistical, and linear algebra operations.
+        np.array([1,2,3,4,5]) # 1darray
+        X.shape # dimensions
+        type(X) # tyep of objects in X
+        x.dtype Type of elemenst in x
+        Y = np.array([[1,2,3],[4,5,6],[7,8,9], [10,11,12]]) # 2D array
+        np.save("name", X) # saves X under name in the current directory
+        np.load("name") # loads the array ## When loading an array from a file, make sure you include the name of the file together with the extension .npy, otherwise you will get an error.
+        np.zeros(shape) # gives array of zeros with shape
+        np.ones(ones) # gives array of ones with shape 
+        np.full(shape, numbers) # gives array of shape fileld with number
+        np.eye(N) #gives N*N matrix with diagonal filled with ones Identity matrix
+        np.diag([1,2,3,4,5]) # gives 5*5 matrix filled with diagnoal elements from tne list
+        np.arange(N) # gives 1D matrix filled with elements in range of N 
+        np.arange(start, stop, intervel) # gives 1D matrix filled with elements in range of start stop with intervel 
+        np.linspace(start, stop, N, endpoint) # gives 1D matrix filled with elements in range of start stop divided into n intervels endpoint specifies wheater to include stop or not
+        np.reshape(shape) # reshapes any array into given shape
+        np.random.random(shape) # gives mtrix of shape with random intergers bet 0-1
+        np.random.randint(start, stop, size) # gives matrix of shape with random intergers bet start and stop 
+        np.random.normal(mean, standard deviation, shape) # gives random ndarrays with numbers drawn from various probability distributions.
+
+        1D array accesing and editing is same as lists with position index
+        2D array accesing and editing is similar to list but with two indexes [row,coloumn]
+        np.delete(ndarray, elements, axis) # deletes the elements from ndarray axis = 0 is used to select rows, and axis = 1 is used to select columns.
+            Y = np.array([[1,2,3],[4,5,6],[7,8,9]])
+            np.delete(Y,0,axis = 0) # deletes the first row
+            np.delete(Y, [0,2], axis=1) # deletes the first and last column of Y
+        np.append(ndarray, elements, axis) # This function appends the given list of elements to ndarray along the specified axis
+        np.insert(ndarray, index, elements, axis) # This function inserts the given list of elements to ndarray right before the given index along the specified axis
+        stacking is done using either the np.vstack() function for vertical stacking, or the np.hstack() function for horizontal stacking.
+            x = np.array([1,2])
+            Y = np.array([[3,4],[5,6]])
+            np.vstack((x,Y)) ===>z =[[1 2]
+                                    [3 4]
+                                    [5 6]]
+        Slicing the arrays :1. ndarray[start:end]
+                            2. ndarray[start:]
+                            3. ndarray[:end]
+        np.copy(ndarray) # copies the given array into a nex array
+        Boolean indexing is a way to slice array using conditions
+            X[condition] gives matrix where the elements pass the conditions
+        Operations on arrays must have same shape to perform the Operations
+            np.add(X,Y) # adds elements in array
+            np.subtract(X,Y) # subtracts elemenst in the array
+            np.multiply(X,Y) # multiplies elemenst in the array
+            np.divide(X,Y) # divides elements in the array
+            np.exp(x)
+            np.sqrt(x)
+            np.power(x,2)
+            X.mean()
+            X.std()
+            np.median(X)
+            np.max()
+            np.min()
+            we can use axis in the above mean- min to do row and coloumn operations
+
+
+
+
+
+
+
+
+
+
+
+
