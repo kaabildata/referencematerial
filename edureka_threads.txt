@@ -1,0 +1,49 @@
+Java threads:
+    Thread : Threads are created when we have a long running main method and we can split tasks into different threads to avoid Waiting.
+        Is a lightweight subprocess.
+        Smallest independent part of program
+        Every program will have main thread
+        Thread is created using thread API from java.lang package
+    Thread lifecycle
+        New
+            thread lifecycle begins here also known as born thread. Remains in this state until run.
+        Runnable
+            Start the thread changes to this state. remains in this state until thread is executing the task.
+        Running
+            Start executing in this state by run() method and yeild() can send it back to Runnable state
+        Waiting
+            it is a state of inactivity such as Waiting for data from other thread 
+        Terminated
+            enters this state when thread is done with execution
+    creating a thread(Also called child thread or worker thread)
+        Extending Thread class
+            Create a class extending thread class
+            Override run() method
+            Create object of the class and
+            invoke start() method to execute the custom thread run()
+            ensures tight coupling
+        Implementing Runnable interface.
+            Create a class Implementing runnable interface(Since we cannot extend multple classes we use this method)
+            Override run() method
+            Create object of the class and
+                Thread newThread = new Thread(new class())
+            invoke start() method to execute the custom thread run()
+                newThread.start()
+            ensures loose coupling
+    Main Thread
+        This is where java program starts executing when it will end application terminates
+    MultiThreading
+        Ability of program to run two or more threads concurrently, where each thread can perform different tasks at the same time.
+    Thread pool
+        Thread pool is similar to synchronisation. It manages the pool of worker threads and contains queue that keeps the tasks waiting to get executed
+Deamon thread:
+    is a special thread which is executed by JVM along with main
+
+Thread running parrelly is called asynchronisation(Two threads sharing same object)
+
+intrinsic locking the method is a process in which the thread can be locked with the resource until the method is done. this is done to avoid asynchronisation. This is done by addind synchronised keyword to the method. this is done when there are more than two Threads. If only two are avilable we use join() method
+
+.start()
+.join()
+.sleep()
+.setdeamon(True/false)
