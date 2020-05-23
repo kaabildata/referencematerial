@@ -1,0 +1,28 @@
+Servlet:
+    client sends request to server expecting a response
+    That response may be a static page or dynamic page(page that is created at run time)
+    When client requests a dynamic page that request is sent to helper application(Web container)
+    This web container consists of servlets. 
+    This servlet will take the request and fetch the value and sends the reponse
+    Web container
+        Tomcat
+        Glassfish
+        IBM websphere
+    Inside the web container we have file called deployment descripter(Web.xml) in which we mention which request coresponds to which servlets.
+    web.xml has two tags servlet tag and servlet-mapping tag which describes the mapping.
+    Servlet is a normal class that extends httpservlet class
+GET and POST requests:
+    HTTP protocol has 5 mthods to work with.
+        GET
+        POST
+        PUT
+        Delete
+        OPTIONS
+    Normally when we want to send data to the server we use post request
+    to fetch data we use get request
+    When no method is submitted in the HTML it will assume a GET request.
+        When we send a GET request to server it will diplay in the URL and concats in the end. So when sending username and passowrd type data we use post request
+We can control the type of request processed in the class also.
+    HTTP servlet provides us two methods to use instead of service 
+        doGet
+        doPost
