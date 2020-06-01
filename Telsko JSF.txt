@@ -43,5 +43,81 @@ Calling Servlet from other servlet:
         And map the servelet in the web.xml
 
     redirecting
+        RequsetDispatcher is genrally used when we are calling servlet in the same website
+        Send redirect is used when we are redirecting servlet to other website like payment gateway where we need to mention to the client that the request is farwording.
+        in such scenario when the req object needs to send to a different servlet we use SessionManagement
+        res.sendredirect(location)
+SessionManagement:
+    it is the process of sending data from one servelet to other when redirecting. It can be done in three methods 
+        Session
+            Session object holds the req data that needs to be shared between the servlets.
+            HttpSession session = req.getSession();
+            Session.addAttribute to save the attribute that needs to be shared
+            Session.getAttribute to get the attribute in the target servlet.
+        Cookies
+        URL rewrite
+            URL rewrite is a method of passing parameters in the url rediect itself by ?k=n format
 Http request object
+    This object carries all the parameters to the server along with the request
 Http response object
+    This object carries all the response type to client
+
+Servlet config & Servlet context:
+    both are used to get initial parameters. Like username, passowrd, filepath etc
+    servlet context:
+        We specify these values in xml as context parameter and in the servlet we use servletcontext object to get the parameter into the servlet
+        servlet context object is shared by all the servlets. so any parameters specific to one servlet we use servlet config
+    Servlet config:
+        servlet config object is not shared by all the servlets.
+        this is mentioned directly in the servlet tag in xml as initparam tag and use servletconfig object in the servlet
+Annotation config:
+    instead of using xml we can also use annotations to map the servelets
+    @WebServlet("path") will map servlet with the url pattern
+
+JSP:
+    Until now we have seen any out.print() prints directly in the page and when we need to return a html page we need to add all the tags and style in each line of the print statement.
+    This becomes hectic when working on big applications where there is much design goes on
+    Jsp is writing java code inside the jsp page(basically that is a HTML page)
+    Any code in the jsp page written between <%%> is treated as the java code
+    No annotation or xml is required in the index.html we need to add filename.jsp in the action
+    Any code written in JSP pages are converted into servlets.All the objects we need are implicitly provided by the jsp when converting to 
+    <%%> is called scriplet.any code in scriplet is directly pasted in the service method
+    if we want to add any variables in the class outside service we use declaration tag <%! %>
+    if we want to import any other packages that are not implicitly imported we use directive tag <%@page import "package name", "package name" %>
+    if we want print we can use expression tag <%= %> it will directly paste the print in the out.println 
+
+JSP directive:
+    in directive tags we have mutiple annotations we have
+        @page
+            <%@page attribute= "value" attribute="value"%>
+            Some of the attrubutes are : 
+                language = "Scripting language" generally its java
+                extends = "className" generally indicated a class which is extended from
+                import = "importList" import some packages
+                session = "true|false" if we want to use session
+                autoFlash = "true|false" When using Buffer autoFlash overrides buffer 
+                contentType = "ctinfo" what type of content we are sending
+                errorPage = "error_url" specify exception handling page
+                isErrorPage = "true|false" to set if the current page is error page
+                info = "information"
+                isElignored ="true|false"
+                isThreadSafe = "true|false" 
+        @include 
+            instead  of writing header, footer for all the pages we wwrite them once and use include fucntion to add them to necessary pages
+            <%@include file = "filename"%>
+            <%@include file = "header.jsp"%>
+        @taglib
+            if we want to use external tags we have to include them in taglib like spring annotations
+            <%@taglib uri = "uri" prefix = "fx"%>
+            <fx:tagname> when using the tag
+
+implicit objects in JSP:
+    Implicit objects are objects provided by JSP to use directly
+    Builtin implicit objects are:
+        request (httpservletRequest)
+        response (httpservletResponse)
+        pageContext (PageContext)
+        out(JSPwrite) -> Printer object
+        session (HttpSession)
+        application (ServletContext)
+        config(ServletConfig)
