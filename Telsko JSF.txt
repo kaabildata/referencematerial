@@ -121,3 +121,27 @@ implicit objects in JSP:
         session (HttpSession)
         application (ServletContext)
         config(ServletConfig)
+
+Exception handling in jsp:
+    we can use try catch error to catch unchecked exceptions in the scriplet
+    Generally we use error.jsp page to catch any errors in the app. in the <%page errorPage = "name"%> this redirects any error to the error page
+    in the error page if we want to use the exception we need to specify isErrorPage as true in the page attribute
+
+MVC pattern using JSP and servlet:
+    Generally it is not best to write business logic in the JSP page, jsp should only be used to write dynamic HTML pages.
+    MVC design pattern is a way of designing a application i which the customers request is send to the controller which uses that request to send data or Model to the views. These views take the data and generate a dynamic website which is send to the client.
+    Controllers are generally written using servlets
+    Model objects are POJO
+    Views are JSP pages which are filled using data from Model Objects 
+
+Servlet filter:
+    it is the process of filtering requests send to a servlet according to the rules set in a filter.
+    filters such as security, logging, transaction management will weed out any unnecessary requests sent
+    all these filters are pluggable and can be interchanged for any servlet
+    Any class extending servletFilter is a filter
+    Filter has three class:
+        init()
+        doFilter()
+            mostly we use this method. 
+        destroy()
+    Filterconfig is method of configuring the filters to the initial parameters
