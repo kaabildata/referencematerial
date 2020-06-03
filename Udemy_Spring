@@ -1,0 +1,44 @@
+Spring
+
+Spring Bean:
+    Spring Bean is simply a Java object.
+    When Java objects are created by the Spring Container, then Spring refers to them as "Spring Beans".
+    Spring Beans are created from normal Java classes .... just like Java objects.
+Inversion of control:
+    it is simply design process of externalising construction and management of objects
+    Outsource to an object factory
+    Any app that is configurable needs to use a object factory
+    Create and manage objects
+
+Dependancy injection:
+    Inject object dependencies
+    Outsource the construction and injection of object to extrenal entity
+
+Configuring Spring Container can be done by:
+    XML config file
+    Java annotations
+    Java Source code
+
+Spring development process:
+    1) configure the spring beans
+        XMl:
+        in the bean tags specify the objects we need to use in the application
+        <beans>
+            <bean id ="name" class="Qualified name to Retrive the bean"></bean>
+        </beans>
+    2) Create Spring Container
+        Generally known as application context used to read XML,annotations or Sourcecode
+            ClassPathXmlApplicationContext
+            AnnotationConfigApplicationContext
+            GenericWebApplicationContext
+
+    3) Retrive Spring beans from the container
+        After creating the application context object we use object.getBean("name", interface) to retrive the bean
+        this process helps our app to be configurable
+
+Injection types:
+    constructor injection
+        Define the dependancy and its class
+        Create a constructor in your class functions
+        configure the dependancy injection in the spring config file
+    Setter Injection
