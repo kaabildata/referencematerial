@@ -41,4 +41,28 @@ Injection types:
         Define the dependancy and its class
         Create a constructor in your class functions
         configure the dependancy injection in the spring config file
+            in the bean to which we need to inject we just add constructor arg ref field in the xml file
     Setter Injection
+        This is where spring inject dependencies by just calling setter methods on your class
+            Create setter methods in your classes for injections
+            configure the dependancy injection in the XML file 
+                unlike dependancy injection we will add property tag in the bean to inje
+    
+    Bean Scopes and lifecycle:
+        ct into setters as per the property name give as camelcase settername
+    
+    Injecting literal values:
+        Create setter methods in the class
+        configure the injection in the xml file
+            in the bean tag we add property tag to inject literal values same as the setter injection(instead of ref we will give value)
+    
+    Inject values from the property file:
+        Create the properties file
+            Just write the file with properties as propertyname: name and save as .properties file
+        Load properties values into the XML
+            <context:property-placeholder location: file location>
+        Ref the properties form the file directly
+            Similar to injecting literals we just ref the value to the propertyname in the properties file
+
+Bean Scopes and lifecycle:
+    
